@@ -100,5 +100,14 @@ DELETE FROM products where id=1;
 docker run --tty --network cdc-with-debezium-and-kafka_default confluentinc/cp-kafkacat kafkacat -b kafka:9092 -C -s key=s -s value=avro -r http://schema-registry:8081 -t postgres.public.products
 ```
 
+```
+{"before": null, "after": {"Value": {"id": 1, "name": {"string": "HOKA Clifton 9"}}}, "source": {"version": "1.4.2.Final", "connector": "postgresql", "name": "postgres", "ts_ms": 1735994564233, "snapshot": {"string": "false"}, "db": "test_db", "schema": "public", "table": "products", "txId": {"long": 491}, "lsn": {"long": 23890392}, "xmin": null}, "op": "c", "ts_ms": {"long": 1735994565173}, "transaction": null}
+% Reached end of topic postgres.public.products [0] at offset 1
+{"before": null, "after": {"Value": {"id": 2, "name": {"string": "HOKA Rincon 3"}}}, "source": {"version": "1.4.2.Final", "connector": "postgresql", "name": "postgres", "ts_ms": 1735995253734, "snapshot": {"string": "false"}, "db": "test_db", "schema": "public", "table": "products", "txId": {"long": 492}, "lsn": {"long": 23890976}, "xmin": null}, "op": "c", "ts_ms": {"long": 1735995254345}, "transaction": null}
+% Reached end of topic postgres.public.products [0] at offset 2
+{"before": {"Value": {"id": 2, "name": {"string": "HOKA Rincon 3"}}}, "after": {"Value": {"id": 2, "name": {"string": "HOKA Rincon 3 Men"}}}, "source": {"version": "1.4.2.Final", "connector": "postgresql", "name": "postgres", "ts_ms": 1735995346936, "snapshot": {"string": "false"}, "db": "test_db", "schema": "public", "table": "products", "txId": {"long": 493}, "lsn": {"long": 23891656}, "xmin": null}, "op": "u", "ts_ms": {"long": 1735995347285}, "transaction": null}
+% Reached end of topic postgres.public.products [0] at offset 3
+{"before": {"Value": {"id": 1, "name": {"string": "HOKA Clifton 9"}}}, "after": null, "source": {"version": "1.4.2.Final", "connector": "postgresql", "name": "postgres", "ts_ms": 1735995463993, "snapshot": {"string": "false"}, "db": "test_db", "schema": "public", "table": "products", "txId": {"long": 494}, "lsn": {"long": 23892064}, "xmin": null}, "op": "d", "ts_ms": {"long": 1735995464049}, "transaction": null}
+```
 !["Kafka Topic"](images/kafka-topic.png?raw=true)
 
