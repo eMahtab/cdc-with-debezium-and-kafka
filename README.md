@@ -94,7 +94,11 @@ UPDATE products set name='HOKA Rincon 3 Men' where id=2;
 DELETE FROM products where id=1;
 ```
 
-## Step 5 : Verify the Kafka topic
+## Step 5 : Verify the changes in Kafka topic
+
+```
+docker run --tty --network cdc-with-debezium-and-kafka_default confluentinc/cp-kafkacat kafkacat -b kafka:9092 -C -s key=s -s value=avro -r http://schema-registry:8081 -t postgres.public.products
+```
 
 !["Kafka Topic"](images/kafka-topic.png?raw=true)
 
