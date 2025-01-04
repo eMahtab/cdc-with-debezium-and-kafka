@@ -1,5 +1,7 @@
 # Change Data Capture with Debezium and Kafka
 
+This demo is based on [Stream your PostgreSQL changes into Kafka with Debezium](https://www.youtube.com/watch?v=YZRHqRznO-o) , we stream database table changes (postgres in this case) to a Kafka topic using [Debezium](https://debezium.io/).
+
 First make sure docker engine is running on your machine
 
 ## Step 1 : docker compose up
@@ -111,3 +113,6 @@ docker run --tty --network cdc-with-debezium-and-kafka_default confluentinc/cp-k
 ```
 !["Kafka Topic"](images/kafka-topic.png?raw=true)
 
+
+# References :
+https://www.youtube.com/watch?v=YZRHqRznO-o
