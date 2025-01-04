@@ -63,4 +63,23 @@ services:
 
 !["Docker containers"](images/docker-compose-up.png?raw=true)
 
+## Step 2 :
+
+Create the products table and set the replication 
+
+```sql
+psql -U test_user -d test_db
+
+CREATE TABLE products (id integer primary key, name varchar);
+
+ALTER TABLE public.products REPLICA IDENTITY FULL;
+```
+!["Docker containers"](images/create-table-and-replication.png?raw=true)
+
+
+## Step 3 : Register the Debezium Connector for products table
+```
+ curl -X POST http://localhost:8083/connectors -H 'Content-Type: application/json' -H 'Accept: application/json' -d @debezium.json
+```
+
 
