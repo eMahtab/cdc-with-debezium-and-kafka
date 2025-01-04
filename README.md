@@ -63,7 +63,7 @@ services:
 
 !["Docker containers"](images/docker-compose-up.png?raw=true)
 
-## Step 2 :
+## Step 2 : Create products table and set the replication 
 
 Create the products table and set the replication 
 
