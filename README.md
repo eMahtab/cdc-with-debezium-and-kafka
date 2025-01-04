@@ -1,4 +1,4 @@
-# Change Data Capture with Debezium and Kafka
+![image](https://github.com/user-attachments/assets/b84be656-f762-4e7d-8ea6-68879e1dac40)# Change Data Capture with Debezium and Kafka
 
 First make sure docker engine is running on your machine
 
@@ -82,4 +82,14 @@ ALTER TABLE public.products REPLICA IDENTITY FULL;
  curl -X POST http://localhost:8083/connectors -H 'Content-Type: application/json' -H 'Accept: application/json' -d @debezium.json
 ```
 
+## Step 4 : Insert/Update/Delete table records and verify 
 
+```
+INSERT INTO products(id, name) VALUES (1, 'HOKA Clifton 9');
+
+INSERT INTO products(id, name) VALUES (2, 'HOKA Rincon 3');
+
+UPDATE products set name='HOKA Rincon 3 Men' where id=2;
+
+DELETE FROM products where id=1;
+```
