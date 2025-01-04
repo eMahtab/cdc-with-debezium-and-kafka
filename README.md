@@ -86,7 +86,7 @@ ALTER TABLE public.products REPLICA IDENTITY FULL;
 
 ## Step 4 : Insert/Update/Delete records in products table
 
-```
+```sql
 INSERT INTO products(id, name) VALUES (1, 'HOKA Clifton 9');
 
 INSERT INTO products(id, name) VALUES (2, 'HOKA Rincon 3');
